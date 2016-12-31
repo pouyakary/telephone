@@ -121,14 +121,19 @@ class GitStatusComponent extends React.Component<GitStatusProps, GitStatusState>
     const unmergedFileDescriptions: GitStatusFileProps[] = [];
     const unknownFileDescriptions: GitStatusFileProps[] = [];
 
-    const addFile = (path: string) => async () => {
-      await executeCommand("git", ["add", path], this.props.repoRoot);
-      this.reload();
+    const addFile = (path: string) => ( ) => {
+      return new Promise<{}>( async resolve => {
+        await executeCommand("git", ["add", path], this.props.repoRoot);
+        this.reload();
+        resolve( );
+      });
     };
 
-    const resetFile = (path: string) => async () => {
-      await executeCommand("git", ["reset", path], this.props.repoRoot);
-      this.reload();
+    const resetFile = (path: string) => ( ) => {
+      return new Promise<{}>( async resolve => {        
+        await executeCommand("git", ["reset", path], this.props.repoRoot);
+        this.reload();
+      })
     };
 
     this.state.gitStatus.forEach((file: FileStatus) => {
