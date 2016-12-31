@@ -7,17 +7,17 @@ import {getAcceleratorForAction} from "../keyevents/Keybindings";
 export function buildMenuTemplate(app: Electron.App, browserWindow: Electron.BrowserWindow): Electron.MenuItemOptions[] {
     const template: Electron.MenuItemOptions[] = [
         {
-            label: "Black Screen",
+            label: "Telephone",
             submenu: [
                 {
-                    label: "About Black Screen",
+                    label: "About Telephone",
                     role: "about",
                 },
                 {
                     type: "separator",
                 },
                 {
-                    label: "Hide Black Screen",
+                    label: "Hide Telephone",
                     accelerator: getAcceleratorForAction(KeyboardAction.blackScreenHide),
                     click: () => {
                         app.hide();
@@ -211,7 +211,7 @@ export function buildMenuTemplate(app: Electron.App, browserWindow: Electron.Bro
                     label: "GitHub Repository",
                     click: () => {
                         /* tslint:disable:no-unused-expression */
-                        remote.shell.openExternal("https://github.com/shockone/black-screen");
+                        remote.shell.openExternal("https://github.com/shockone/telephone");
                     },
                 },
             ],

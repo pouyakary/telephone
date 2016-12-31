@@ -339,7 +339,7 @@ export function assign<A extends B, B extends Object>(source: A, assignments: B)
     return Object.assign({}, source, assignments);
 }
 
-const baseConfigDirectory = Path.join(homeDirectory, ".black-screen");
+const baseConfigDirectory = Path.join(homeDirectory, ".telephone");
 export const presentWorkingDirectoryFilePath = Path.join(baseConfigDirectory, "presentWorkingDirectory");
 export const historyFilePath = Path.join(baseConfigDirectory, "history");
 export const windowBoundsFilePath = Path.join(baseConfigDirectory, "windowBounds");

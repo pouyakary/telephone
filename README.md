@@ -1,10 +1,10 @@
-[![Join the chat at https://gitter.im/shockone/black-screen](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/shockone/black-screen?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![Build Status](https://travis-ci.org/shockone/black-screen.svg?branch=master)](https://travis-ci.org/shockone/black-screen)
+[![Join the chat at https://gitter.im/shockone/telephone](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/shockone/telephone?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Build Status](https://travis-ci.org/shockone/telephone.svg?branch=master)](https://travis-ci.org/shockone/telephone)
 
 What Is It?
 -----------
 
-Black Screen is an IDE in the world of terminals. Strictly speaking, it's both a
+Telephone is an IDE in the world of terminals. Strictly speaking, it's both a
 terminal emulator and an *interactive* shell based on [Electron](http://electron.atom.io/).
 Also, unlike most of the emulators you can meet nowadays it uses HTML and CSS for its UI (exactly as Atom does), 
 which means we can [stop misusing unicode characters](https://github.com/vim-airline/vim-airline) 
@@ -14,7 +14,7 @@ and make a better looking terminal with appropriate tools.
 
 ###### Autocompletion
 
-Black Screen shows the autocompletion box as you type and tries to be smart about what to suggest.
+Telephone shows the autocompletion box as you type and tries to be smart about what to suggest.
 Often you can find useful additional information on the right side of the autocompletion, e.g. expanded alias value,
 history substitutions for `!!`, command descriptions, value of the previous directory (`cd -`), etc.
 
@@ -27,7 +27,7 @@ Install
 
 ```bash
 brew update
-brew cask install black-screen
+brew cask install telephone
 ```
 
 Linux and Windows builds will be available after 1.0.0 release. Currently only OS X is supported to speed up the development process.
@@ -57,7 +57,7 @@ Development Setup
 ------------
 
 ```bash
-git clone https://github.com/shockone/black-screen.git && cd black-screen
+git clone https://github.com/shockone/telephone.git && cd telephone
 npm start
 ```
 

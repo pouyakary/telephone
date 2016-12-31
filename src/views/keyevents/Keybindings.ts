@@ -198,7 +198,7 @@ export const KeybindingsForMenu: KeybindingMenuType[] = [
         action: KeyboardAction.viewToggleFullScreen,
         accelerator: ToggleFullScreenAccelerator,
     },
-    // black screen commands
+    // telephone commands
     {
         action: KeyboardAction.blackScreenHide,
         accelerator: "CmdOrCtrl+H",

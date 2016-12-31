@@ -1,16 +1,16 @@
 {
-  "name": "black-screen",
-  "productName": "Black Screen",
+  "name": "telephone",
+  "productName": "Telephone",
   "description": "A terminal emulator for the 21st century.",
   "version": "0.2.76",
   "main": "compiled/src/main/Main.js",
   "author": "Volodymyr Shatskyi <shockone89@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/shockone/black-screen.git"
+    "url": "https://github.com/shockone/telephone.git"
   },
   "bugs": {
-    "url": "https://github.com/shockone/black-screen/issues"
+    "url": "https://github.com/shockone/telephone/issues"
   },
   "engineStrict": true,
   "engines": {
@@ -82,7 +82,7 @@
     "app": "."
   },
   "build": {
-    "appId": "com.github.shockone.black-screen",
+    "appId": "com.github.shockone.telephone",
     "category": "public.app-category.developer-tools"
   }
 }

@@ -1,7 +1,7 @@
 import * as React from "react";
 import {Suggestion} from "../plugins/autocompletion_utils/Common";
 import * as css from "./css/main";
-import {HighlightSequencedSuggestion} from "../SequenceKit";
+import {filterAndHighlightSuggestions} from "../SequenceKit";
 
 interface SuggestionProps {
     suggestion: Suggestion;
@@ -18,8 +18,7 @@ const SuggestionComponent = ({suggestion, onHover, onClick, isHighlighted, searc
 
         <i style={Object.assign({}, css.suggestionIcon, suggestion.style.css)} dangerouslySetInnerHTML={{__html: suggestion.style.value}}/>
 
-        <span style={css.autocomplete.value}
-              dangerouslySetInnerHTML={{__html: HighlightSequencedSuggestion( suggestion.displayValue, searchKey)}} />
+        <span style={css.autocomplete.value}>{filterAndHighlightSuggestions( suggestion.displayValue, searchKey)}</span>
         <span style={css.autocomplete.synopsis}>{suggestion.synopsis}</span>
     </li>;
 

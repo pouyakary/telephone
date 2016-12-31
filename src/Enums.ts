@@ -137,7 +137,7 @@ export enum KeyboardAction {
     // view commands
     viewReload,
     viewToggleFullScreen,
-    // black screen commands
+    // telephone commands
     blackScreenHide,
     blackScreenQuit,
     blackScreenHideOthers,
