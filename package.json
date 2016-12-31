@@ -1,16 +1,16 @@
 {
   "name": "telephone",
   "productName": "Telephone",
-  "description": "A terminal emulator for the 21st century.",
+  "description": "A personal fork of Black Screen",
   "version": "0.2.76",
   "main": "compiled/src/main/Main.js",
-  "author": "Volodymyr Shatskyi <shockone89@gmail.com>",
+  "author": "Pouya Kary <k@karyfoundation.org>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/shockone/telephone.git"
+    "url": "https://github.com/pmkary/telephone.git"
   },
   "bugs": {
-    "url": "https://github.com/shockone/telephone/issues"
+    "url": "https://github.com/pmkary/telephone/issues"
   },
   "engineStrict": true,
   "engines": {
@@ -82,7 +82,7 @@
     "app": "."
   },
   "build": {
-    "appId": "com.github.shockone.telephone",
+    "appId": "us.kary.telephone",
     "category": "public.app-category.developer-tools"
   }
 }
