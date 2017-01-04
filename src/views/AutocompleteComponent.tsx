@@ -11,16 +11,17 @@ interface SuggestionProps {
     searchKey: string;
 }
 
-const SuggestionComponent = ({suggestion, onHover, onClick, isHighlighted, searchKey}: SuggestionProps) =>
-    <li style={css.autocomplete.item(isHighlighted)}
+const SuggestionComponent = ({suggestion, onHover, onClick, isHighlighted, searchKey}: SuggestionProps) => {
+    return <li style={css.autocomplete.item(isHighlighted)}
         onMouseOver={onHover}
         onClick={onClick}>
 
         <i style={Object.assign({}, css.suggestionIcon, suggestion.style.css)} dangerouslySetInnerHTML={{__html: suggestion.style.value}}/>
 
-        <span style={css.autocomplete.value}>{filterAndHighlightSuggestions( suggestion.displayValue, searchKey)}</span>
+        <span style={css.autocomplete.value}>{filterAndHighlightSuggestions( suggestion.displayValue, searchKey, isHighlighted )}</span>
         <span style={css.autocomplete.synopsis}>{suggestion.synopsis}</span>
     </li>;
+};
 
 interface AutocompleteProps {
     offsetTop: number;

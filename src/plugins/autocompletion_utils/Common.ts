@@ -296,10 +296,10 @@ function gitStatusCodeColor(statusCode: StatusCode) {
             return colors.red;
 
         case "Unmodified":
-            return colors.white;
+            return colors.black;
         default:
             console.error(`Unhandled git status code: ${statusCode}`);
-            return colors.white;
+            return colors.black;
     }
 }
 

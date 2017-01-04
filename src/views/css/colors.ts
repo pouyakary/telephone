@@ -3,13 +3,13 @@ import * as _ from "lodash";
 import {ColorCode} from "../../Interfaces";
 
 export const colors = {
-    black: "#292C33",
-    red: "#BF6E7C",
-    white: "#95A2BB",
-    green: "#88B379",
-    yellow: "#D9BD86",
-    blue: "#66A5DF",
-    magenta: "#C699C5",
+    black: "#1A1A1A",
+    red: "#C94824",
+    white: "#f4f4f4",
+    green: "#428226",
+    yellow: "#A56416",
+    blue: "#4096FE",
+    magenta: "#B052A1",
     cyan: "#6EC6C6",
 
     brightBlack: "#484c54",
@@ -18,19 +18,19 @@ export const colors = {
     brightGreen: "#9dcc8c",
     brightYellow: "#e9cc92",
     brightBlue: "#6cb2f0",
-    brightMagenta: "#e8b6e7",
+    brightMagenta: "#CD30C2",
     brightCyan: "#7adada",
 };
 
 const colorIndex = [
-    colors.black,
+    colors.white,
     colors.red,
     colors.green,
     colors.yellow,
     colors.blue,
     colors.magenta,
     colors.cyan,
-    colors.white,
+    colors.black,
 
     colors.brightBlack,
     colors.brightRed,
@@ -82,5 +82,5 @@ export function colorValue(color: ColorCode, options = {isBright: false}) {
     }
 }
 
-export const background = colors.black;
+export const background = colors.white;
 export const panel = darken(background, 3);

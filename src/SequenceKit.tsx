@@ -2,6 +2,7 @@
 
 import { colors } from "./views/css/colors";
 import { Suggestion } from "./plugins/autocompletion_utils/Common";
+import * as css from './views/css/main'
 import * as React from "react";
 
 const maxAcceptableSuggestionLength = 60;
@@ -38,7 +39,8 @@ export function SequenceFilter( element: string, key: string ): boolean {
  * Inserts spans into the sequence to make it colorized.
  */
 export function filterAndHighlightSuggestions( element: string,
-                                                   key: string ): JSX.Element[] {
+                                                   key: string,
+                                         isHighlighted: boolean ): JSX.Element[] {
     let overflowStatus = false;
     let currentSearchCharIndex = 0;
     let highlightedElements = new Array<JSX.Element>();
@@ -54,7 +56,9 @@ export function filterAndHighlightSuggestions( element: string,
         if ( currentChar === key[ currentSearchCharIndex ] ) {
             if ( currentSearchCharIndex < key.length ) {
                 // highlightedElement += `<span style="color:${colors.blue}">${currentChar}</span>`;
-                highlightedElements.push(<span style={{color: colors.blue}}>{currentChar}</span>)
+                highlightedElements.push(
+                    <span style={ css.autocomplete.highlightedChar( isHighlighted ) }>{currentChar}</span>
+                )
                 currentSearchCharIndex++;
 
             } else {

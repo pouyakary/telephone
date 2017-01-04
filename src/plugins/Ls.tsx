@@ -24,7 +24,7 @@ const renderFile = (file: any, itemWidth = 0, key: number) => {
         style.margin = "2px 4px";
     }
     return <Link key={key} absolutePath={file.filePath} style={style}>
-        <span style={{color: file.isDirectory() ? colors.blue : colors.white}}>{file.fileName}</span>
+        <span style={{color: file.isDirectory() ? colors.blue : colors.black}}>{file.fileName}</span>
         <span>{file.isDirectory() ? "/" : ""}</span>
     </Link>;
 };

@@ -11,7 +11,7 @@ app.on("ready", () => {
     const bounds = windowBounds();
 
     let options: Electron.BrowserWindowOptions = {
-        backgroundColor: colors.black,
+        backgroundColor: colors.white,
         webPreferences: {
             experimentalFeatures: true,
             experimentalCanvasFeatures: true,

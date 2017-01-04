@@ -15,9 +15,8 @@ const promptVerticalPadding = 5;
 const promptHorizontalPadding = 10;
 const promptHeight = 12 + (2 * promptVerticalPadding);
 export const promptWrapperHeight = promptHeight + promptVerticalPadding;
-const promptBackgroundColor = lighten(colors.black, 5);
+const promptBackgroundColor = 'white';
 const suggestionSize = 2 * fontSize;
-const defaultShadow = "0 2px 8px 1px rgba(0, 0, 0, 0.3)";
 export const titleBarHeight = 36;
 export const rowHeight = fontSize + 4;
 export const infoPanelHeight = 2 * fontSize + 4;
@@ -29,7 +28,6 @@ const infoPanel = {
     paddingBottom: 6,
     paddingLeft: 0.6 * fontSize,
     lineHeight: 1.3,
-    backgroundColor: panelColor,
 };
 
 const unfocusedJobs: CSSObject = {
@@ -46,7 +44,7 @@ const outputCutZIndex = 0;
 const decorationWidth = 30;
 const arrowZIndex = 2;
 const progressBarStripesSize = 30;
-const arrowColor = lighten(promptBackgroundColor, 10);
+const arrowColor = '#f4f4f4';
 const searchInputColor = lighten(panelColor, 15);
 
 const promptGrid = {
@@ -136,8 +134,8 @@ export const application = Object.assign(
     applicationGrid.container,
     {
         backgroundColor: backgroundColor,
-        color: colors.white,
-        fontFamily: "'Hack', 'Fira Code', 'Menlo', monospace",
+        color: colors.black,
+        fontFamily: "'Hasklig-Medium', 'Fira Code', 'Menlo', monospace",
         fontSize: fontSize,
     }
 );
@@ -169,33 +167,30 @@ export const row = (jobStatus: Status, activeScreenBufferType: ScreenBufferType)
 
 export const autocompletionDescription = Object.assign(
     {
-        display: "block",
-        boxShadow: "0 4px 8px 1px rgba(0, 0, 0, 0.3)",
-        position: "absolute",
-        left: 0,
-        right: 0,
-        fontSize: "0.8em",
-        minHeight: infoPanelHeight,
+        color: '#C18000',
+        borderTop: '1pt solid #eee',
+        marginBottom: 3,
     },
     infoPanel
 );
 
-export const suggestionIcon = Object.assign(
-    {},
-    icon,
-    {
-        display: "inline-block",
-        width: suggestionSize,
-        height: suggestionSize,
-        lineHeight: "2em",
-        verticalAlign: "middle",
-        textAlign: "center",
-        fontStyle: "normal",
-        opacity: ".5",
-        marginRight: 10,
-        backgroundColor: "rgba(0, 0, 0, 0.15)",
-    }
-);
+export const suggestionIcon =
+    Object.assign(
+        { },
+        icon,
+        {
+            display: "inline-block",
+            width: suggestionSize,
+            height: suggestionSize,
+            lineHeight: "2em",
+            verticalAlign: "middle",
+            textAlign: "center",
+            fontStyle: "normal",
+            marginRight: 10,
+            textShadow: '0 0 5px white',
+            backgroundColor: 'rgba(255, 255, 255, 0.2)',
+        }
+    );
 
 export const autocomplete = {
     box: (offsetTop: number, caretPosition: number, hasDescription: boolean) => {
@@ -204,12 +199,16 @@ export const autocomplete = {
         return {
             position: "absolute",
             top: shouldDisplayAbove ? "auto" : promptWrapperHeight,
-            bottom: shouldDisplayAbove ? suggestionSize + (hasDescription ? suggestionSize : 0) : "auto",
+            bottom: shouldDisplayAbove ? suggestionSize + (hasDescription ? suggestionSize : 0): "auto",
             left: decorationWidth + promptHorizontalPadding + (caretPosition * letterWidth),
             minWidth: 300,
-            boxShadow: defaultShadow,
-            backgroundColor: colors.black,
+            backgroundColor: 'white',
             zIndex: 3,
+            borderRadius: 5,
+            boxShadow: '0 0 20px 1px rgba(0, 0, 0, 0.1)',
+            overflow: 'hidden',
+            marginTop: -promptHeight - 2,
+            marginBottom: -promptHeight,
         };
     },
     synopsis: {
@@ -225,16 +224,21 @@ export const autocomplete = {
     item: (isHighlighted: boolean) => {
         const style: CSSObject = {
             listStyleType: "none",
-            padding: 2,
             cursor: "pointer",
         };
 
         if (isHighlighted) {
-            style.backgroundColor = "#383E4A";
+            style.backgroundColor = colors.blue;
+            style.color = 'white';
         }
 
         return style;
     },
+
+    highlightedChar: ( isHighlighted: boolean ) => {
+        return isHighlighted? { color: '#C7E0FF' } : { color: colors.blue };
+    },
+
     suggestionsList: {
         maxHeight: 300,
         overflow: "auto",
@@ -346,7 +350,7 @@ export const searchInput = {
 
 export const tab = (isHovered: boolean, isFocused: boolean) => {
     return {
-        backgroundColor: isHovered ? panelColor : colors.black,
+        backgroundColor: isHovered ? '#eee' : colors.white,
         opacity: (isHovered || isFocused) ? 1 : 0.3,
         position: "relative",
         height: titleBarHeight,
@@ -365,7 +369,7 @@ export const tabClose = (hover: TabHoverState) => {
         {},
         icon,
         {
-            color: tabCloseButtonColor(hover),
+            color: hover? colors.red : 'transparent',
             position: "absolute",
             left: margin,
             top: margin / 2,
@@ -567,7 +571,7 @@ export const autocompletedPreview = Object.assign(
     {},
     promptInlineElement,
     {
-        color: lighten(promptBackgroundColor, 15),
+        color: colors.black,
     }
 );
 
@@ -575,7 +579,7 @@ export const prompt = (isSticky: boolean) => Object.assign(
     {},
     promptInlineElement,
     {
-        color: colors.white,
+        color: colors.black,
         zIndex: 2,
         whiteSpace: isSticky ? "nowrap" : "pre-wrap",
     }
