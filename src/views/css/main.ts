@@ -21,6 +21,7 @@ export const titleBarHeight = 36;
 export const rowHeight = fontSize + 4;
 export const infoPanelHeight = 2 * fontSize + 4;
 export const letterWidth = fontSize / 2 + 1.5;
+export const telephoneRed = "#BC0000";
 
 const infoPanel = {
     paddingTop: 8,
@@ -50,15 +51,16 @@ const searchInputColor = lighten(panelColor, 15);
 const promptGrid = {
     decoration: {
         name: "decoration",
-        width: new Px(decorationWidth),
+        width: new Px( decorationWidth ),
     },
     prompt: {
         name: "prompt",
-        width: new Fr(1),
+        width: new Fr( 1 ),
+        color: colors.red,
     },
     actions: {
         name: "actions",
-        width: new Px(150),
+        width: new Px( 150 ),
     },
 };
 
@@ -187,8 +189,8 @@ export const suggestionIcon =
             textAlign: "center",
             fontStyle: "normal",
             marginRight: 10,
-            textShadow: '0 0 5px white',
-            backgroundColor: 'rgba(255, 255, 255, 0.2)',
+            color: 'white',
+            // backgroundColor: 'rgba(255, 255, 255, 0.2)',
         }
     );
 
@@ -202,13 +204,13 @@ export const autocomplete = {
             bottom: shouldDisplayAbove ? suggestionSize + (hasDescription ? suggestionSize : 0): "auto",
             left: decorationWidth + promptHorizontalPadding + (caretPosition * letterWidth),
             minWidth: 300,
-            backgroundColor: 'white',
+            backgroundColor: promptBackgroundColor,
             zIndex: 3,
             borderRadius: 5,
             boxShadow: '0 0 20px 1px rgba(0, 0, 0, 0.1)',
             overflow: 'hidden',
-            marginTop: -promptHeight - 2,
-            marginBottom: -promptHeight,
+            marginTop: 5,
+            marginBottom: 5,
         };
     },
     synopsis: {
@@ -223,20 +225,23 @@ export const autocomplete = {
     },
     item: (isHighlighted: boolean) => {
         const style: CSSObject = {
+            verticalAlign: "middle",
             listStyleType: "none",
             cursor: "pointer",
         };
 
         if (isHighlighted) {
-            style.backgroundColor = colors.blue;
-            style.color = 'white';
+            style.backgroundColor = telephoneRed;
+            style.color = lighten( telephoneRed, 50 );
         }
 
         return style;
     },
 
     highlightedChar: ( isHighlighted: boolean ) => {
-        return isHighlighted? { color: '#C7E0FF' } : { color: colors.blue };
+        return isHighlighted?
+            { color: "white" }: 
+            { color: colors.yellow };
     },
 
     suggestionsList: {

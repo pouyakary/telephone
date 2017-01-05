@@ -55,8 +55,8 @@ export class Suggestion {
         return this.attributes.description || "";
     }
 
-    get style(): Style {
-        return this.attributes.style || {value: "", css: {}};
+    get style( ): Style {
+        return this.attributes.style || { value: "", css: {}} ;
     }
 
     get displayValue(): string {

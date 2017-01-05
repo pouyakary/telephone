@@ -2,6 +2,7 @@ import * as React from "react";
 import {Suggestion} from "../plugins/autocompletion_utils/Common";
 import * as css from "./css/main";
 import {filterAndHighlightSuggestions} from "../SequenceKit";
+import { lighten } from "./css/functions";
 
 interface SuggestionProps {
     suggestion: Suggestion;
@@ -13,13 +14,22 @@ interface SuggestionProps {
 
 const SuggestionComponent = ({suggestion, onHover, onClick, isHighlighted, searchKey}: SuggestionProps) => {
     return <li style={css.autocomplete.item(isHighlighted)}
-        onMouseOver={onHover}
-        onClick={onClick}>
+               onMouseOver={onHover}
+               onClick={onClick}>
 
-        <i style={Object.assign({}, css.suggestionIcon, suggestion.style.css)} dangerouslySetInnerHTML={{__html: suggestion.style.value}}/>
+        <i style={
+                Object.assign({}, 
+                    css.suggestionIcon, isHighlighted?
+                        { color: lighten( css.telephoneRed, 50 ) } : 
+                        suggestion.style.css )}
+           dangerouslySetInnerHTML={{__html: suggestion.style.value}}/>
 
-        <span style={css.autocomplete.value}>{filterAndHighlightSuggestions( suggestion.displayValue, searchKey, isHighlighted )}</span>
-        <span style={css.autocomplete.synopsis}>{suggestion.synopsis}</span>
+        <span style={css.autocomplete.value}>
+            {filterAndHighlightSuggestions( suggestion.displayValue, searchKey, isHighlighted )}
+        </span>
+        <span style={css.autocomplete.synopsis}>
+            {suggestion.synopsis}
+        </span>
     </li>;
 };
 

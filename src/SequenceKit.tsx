@@ -1,6 +1,7 @@
 // Author: Pouya Kary <k@karyfoundation.org> (in case you had any questions...)
 
 import { colors } from "./views/css/colors";
+import { lighten } from "./views/css/functions";
 import { Suggestion } from "./plugins/autocompletion_utils/Common";
 import * as css from './views/css/main'
 import * as React from "react";
@@ -70,7 +71,11 @@ export function filterAndHighlightSuggestions( element: string,
     }
 
     if ( overflowStatus ) {
-        highlightedElements.push(<span style={{color: colors.green}}>...</span>);
+        highlightedElements.push(
+            <span style={ 
+                isHighlighted? { color: lighten( css.telephoneRed , 50 ) } : { color: colors.green }
+            }>...</span>
+        );
     }
 
     return highlightedElements;
