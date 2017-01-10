@@ -57,6 +57,7 @@ const promptGrid = {
         name: "prompt",
         width: new Fr( 1 ),
         color: colors.red,
+        paddingBottom: 2
     },
     actions: {
         name: "actions",
@@ -228,6 +229,7 @@ export const autocomplete = {
             verticalAlign: "middle",
             listStyleType: "none",
             cursor: "pointer",
+            paddingTop: 2,
         };
 
         if (isHighlighted) {
