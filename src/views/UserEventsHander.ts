@@ -141,10 +141,20 @@ export const handleUserEvent = (
 
         // CLI execute command
         if (isKeybindingForEvent(event, KeyboardAction.cliRunCommand)) {
-            prompt.execute((event.target as HTMLElement).innerText);
+            function run ( ) {
+                prompt.execute((event.target as HTMLElement).innerText);
+                event.stopPropagation();
+                event.preventDefault();
+            }
+            if ( prompt.isAutocompleteShown( ) ) {
+                prompt.applySuggestion( ).then( ( ) => {
+                    run( );
+                })
+            } else {
+                run( );
+            }
 
-            event.stopPropagation();
-            event.preventDefault();
+            event.preventDefault( );
             return;
         }
 

@@ -110,6 +110,7 @@ export enum KeyboardAction {
     cliHistoryNext,
     // autocomplete commands
     autocompleteInsertCompletion,
+    autocompleteInsertCompletionAndRunCommand,
     autocompletePreviousSuggestion,
     autocompleteNextSuggestion,
     // tab commands
