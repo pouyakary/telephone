@@ -6,7 +6,8 @@ My personal fork of [Black Screen](https://github.com/vshatskyi/black-screen) co
 
 ## What's it now currently?
 Well it looks like something like this right now. But remember: I've just started tweaking the theme:
-![Uploading Screen Shot 2017-01-12 at 6.25.26 PM.png…]()
+<img width="999" alt="screen shot 2017-01-12 at 6 25 26 pm" src="https://cloud.githubusercontent.com/assets/2157285/21894736/849c3624-d8f5-11e6-800f-db999f6ac713.png">
+
 
 As you can see:
 - Tab bar is bigger
